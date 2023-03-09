@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Animated } from "react-native";
 import React from "react";
 import styled from "styled-components/native";
 
@@ -29,7 +29,7 @@ function ProgressBar() {
             <Parent>
                 <Child
                     style={{
-                        width: "50%",
+                        width: "30%",
                     }}
                 ></Child>
             </Parent>
