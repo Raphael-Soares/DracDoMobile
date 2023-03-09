@@ -12,6 +12,7 @@ const Container = styled.View`
 
     padding-horizontal: 26px;
     padding-top: ${statusbarHeight + 22}px;
+    padding-bottom: 22px;
 `;
 
 const Date = styled.View`
