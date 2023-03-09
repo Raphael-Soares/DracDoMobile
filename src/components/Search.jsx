@@ -18,11 +18,15 @@ const InputWrapper = styled.View`
     border-radius: 4px;
     padding-horizontal: 16px;
     padding-vertical: 8px;
+
+    border-width: 1px;
+    border-color: #ddd;
 `;
 
 const Input = styled.TextInput`
     color: #6272a4;
     font-size: 20px;
+    width: 80%;
 `;
 
 const Icon = styled(Ionicons)`
@@ -33,26 +37,28 @@ const Icon = styled(Ionicons)`
 
 const FilterWrapper = styled.View`
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
     margin-top: 16px;
     padding-right: 1px;
 `;
 
 const FilterButton = styled.TouchableOpacity`
-    flex: 1;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 
-    margin-right: -1px;
+    margin-horizontal: 10px;
 
-    padding-horizontal: 16px;
+    padding-horizontal: 20px;
     padding-vertical: 8px;
 
     background-color: #fff;
 
     border-width: 1px;
     border-color: #ddd;
+    border-radius: 40px;
 `;
 
 const FilterText = styled.Text`
@@ -68,20 +74,10 @@ function Search() {
                 <Icon name="search" size={24} color="black" />
             </InputWrapper>
             <FilterWrapper>
-                <FilterButton
-                    style={{
-                        borderTopLeftRadius: 4,
-                        borderBottomLeftRadius: 4,
-                    }}
-                >
+                <FilterButton>
                     <FilterText>Pending</FilterText>
                 </FilterButton>
-                <FilterButton
-                    style={{
-                        borderTopRightRadius: 4,
-                        borderBottomRightRadius: 4,
-                    }}
-                >
+                <FilterButton>
                     <FilterText>Done</FilterText>
                 </FilterButton>
             </FilterWrapper>

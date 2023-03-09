@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 import Header from "./src/components/Header";
 import ProgressBar from "./src/components/ProgressBar";
 import Search from "./src/components/Search";
+import AddField from "./src/components/AddField";
 
 const Container = styled.View`
     background-color: #f8f8f2;
@@ -17,6 +18,7 @@ function App() {
             <Header />
             <ProgressBar />
             <Search />
+            <AddField />
         </Container>
     );
 }
