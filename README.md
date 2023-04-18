@@ -1,4 +1,4 @@
-#DracDoMobile
+# DracDoMobile
 
 This is a mobile application project inspired by the popular "Dracula theme" on the internet. The purpose of this app is to be a study and practice tool for developers who want to learn how to use React Native, Expo and Styled Components.
 
