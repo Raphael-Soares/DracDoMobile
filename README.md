@@ -6,7 +6,7 @@ This is a mobile application project inspired by the popular "Dracula theme" on 
 
    1. Download or clone the repository to your machine.
    2. Open the terminal in the project folder and run the command npm install to install the necessary dependencies.
-    3. Run the command npm start to start the Expo server.
+   3. Run the command npm start to start the Expo server.
    4. Open the Expo app on your mobile device and scan the QR code to access the application.
 
 ## Features
@@ -14,7 +14,7 @@ This is a mobile application project inspired by the popular "Dracula theme" on 
 The mobile app has the following features:
 
    - Add new tasks to the list
-    - Mark tasks as completed
+   - Mark tasks as completed
    - Remove tasks from the list
 
 ## Limitations
