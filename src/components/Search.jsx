@@ -66,19 +66,28 @@ const FilterText = styled.Text`
     font-size: 16px;
 `;
 
-function Search() {
+const Marked = {
+    backgroundColor: "#d7d7d7",
+    color: "#fff",
+};
+
+function Search({ search, setSearch, pendingMarked, completedMarked, completed, pending }) {
     return (
         <Container>
             <InputWrapper>
-                <Input placeholder="Search" />
+                <Input placeholder="Search" search={search} setSearch={setSearch} />
                 <Icon name="search" size={24} color="black" />
             </InputWrapper>
             <FilterWrapper>
-                <FilterButton>
-                    <FilterText>Pending</FilterText>
+                <FilterButton style={pending ? Marked : {}}>
+                    <FilterText onPress={pendingMarked} style={pending ? Marked : {}}>
+                        Pending
+                    </FilterText>
                 </FilterButton>
-                <FilterButton>
-                    <FilterText>Done</FilterText>
+                <FilterButton style={completed ? Marked : {}}>
+                    <FilterText onPress={completedMarked} style={completed ? Marked : {}}>
+                        Done
+                    </FilterText>
                 </FilterButton>
             </FilterWrapper>
         </Container>
