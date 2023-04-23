@@ -5,6 +5,7 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 import {} from "react-native-gesture-handler";
 
 import { AntDesign } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Container = styled.View`
     flex-direction: row;
@@ -35,10 +36,14 @@ function Task({ task, markCompleteTask, deleteTask }) {
         return (
             <ButtonGroup>
                 <Button onPress={() => markCompleteTask(task.id)}>
-                    <AntDesign name="check" size={24} color="green" />
+                    {!task.done ? (
+                        <MaterialIcons name="done" size={24} color="green" />
+                    ) : (
+                        <MaterialIcons name="remove-done" size={24} color="green" />
+                    )}
                 </Button>
                 <Button onPress={() => deleteTask(task.id)}>
-                    <AntDesign name="delete" size={24} color="red" />
+                    <MaterialIcons name="delete" size={24} color="red" />
                 </Button>
             </ButtonGroup>
         );
