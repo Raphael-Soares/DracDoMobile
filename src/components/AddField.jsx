@@ -48,8 +48,10 @@ function AddField({ addTask }) {
     const [inputText, setInputText] = useState("");
 
     function handleAddTask() {
-        addTask(inputText);
-        setInputText("");
+        if (inputText.length !== 0) {
+            addTask(inputText);
+            setInputText("");
+        }
     }
 
     return (

@@ -79,12 +79,12 @@ function Search({ search, setSearch, pendingMarked, completedMarked, completed, 
                 <Icon name="search" size={24} color="black" />
             </InputWrapper>
             <FilterWrapper>
-                <FilterButton style={pending ? Marked : {}}>
+                <FilterButton style={pending && Marked}>
                     <FilterText onPress={pendingMarked} style={pending ? Marked : {}}>
                         Pending
                     </FilterText>
                 </FilterButton>
-                <FilterButton style={completed ? Marked : {}}>
+                <FilterButton style={completed && Marked}>
                     <FilterText onPress={completedMarked} style={completed ? Marked : {}}>
                         Done
                     </FilterText>
