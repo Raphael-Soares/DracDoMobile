@@ -75,7 +75,7 @@ function Search({ search, setSearch, pendingMarked, completedMarked, completed, 
     return (
         <Container>
             <InputWrapper>
-                <Input placeholder="Search" search={search} setSearch={setSearch} />
+                <Input placeholder="Search" value={search} onChangeText={setSearch} />
                 <Icon name="search" size={24} color="black" />
             </InputWrapper>
             <FilterWrapper>

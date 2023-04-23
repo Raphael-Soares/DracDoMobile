@@ -86,10 +86,6 @@ function App() {
         syncTasks(updatedTasks);
     }
 
-    useEffect(() => {
-        console.log(tasks);
-    }, [tasks]);
-
     const pendingTasks = useMemo(() => {
         return tasks.filter((task) => !task.done);
     }, [tasks]);

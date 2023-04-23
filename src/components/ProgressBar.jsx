@@ -1,6 +1,13 @@
-import { StyleSheet, Text, View, Animated } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { useEffect, useState, useMemo } from "react";
 import styled from "styled-components/native";
+
+import Animated, {
+    useSharedValue,
+    useAnimatedStyle,
+    withSpring,
+    withTiming,
+} from "react-native-reanimated";
 
 const Container = styled.View`
     width: 100%;
@@ -16,27 +23,34 @@ const Parent = styled.View`
 `;
 
 const Child = styled.View`
-    width: 0%;
     height: 100%;
     background-color: #50fa7b;
     border-radius: 4px;
-    transition: width 0.5s ease;
 `;
 
 function ProgressBar({ tasks }) {
     const done = useMemo(() => {
-        tasks.filter((task) => task.done == true);
+        return tasks.filter((task) => task.done);
     }, [tasks]);
-    console.log(tasks);
-    console.log(done);
+
+    const donePercent = useSharedValue(0);
+
+    useEffect(() => {
+        donePercent.value = done.length / tasks.length;
+    }, [done, tasks, donePercent]);
+
+    const progressStyle = useAnimatedStyle(() => {
+        return {
+            width: withTiming(`${donePercent.value * 100}%`),
+        };
+    });
+
     return (
         <Container>
             <Parent>
-                <Child
-                    style={{
-                        width: "30%",
-                    }}
-                ></Child>
+                <Animated.View style={[StyleSheet.absoluteFill, progressStyle]}>
+                    <Child />
+                </Animated.View>
             </Parent>
         </Container>
     );
