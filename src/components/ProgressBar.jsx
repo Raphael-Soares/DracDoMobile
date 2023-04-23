@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Animated } from "react-native";
-import React from "react";
+import { useEffect, useState, useMemo } from "react";
 import styled from "styled-components/native";
 
 const Container = styled.View`
@@ -23,7 +23,12 @@ const Child = styled.View`
     transition: width 0.5s ease;
 `;
 
-function ProgressBar() {
+function ProgressBar({ tasks }) {
+    const done = useMemo(() => {
+        tasks.filter((task) => task.done == true);
+    }, [tasks]);
+    console.log(tasks);
+    console.log(done);
     return (
         <Container>
             <Parent>

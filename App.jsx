@@ -8,6 +8,8 @@ import Search from "./src/components/Search";
 import AddField from "./src/components/AddField";
 import Task from "./src/components/Task";
 
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Container = styled.View`
@@ -34,7 +36,7 @@ function App() {
         const newTasks = tasks.filter((task) => task.id !== id);
 
         setTasks(newTasks);
-        syncTasks(newTasks); // adicionado para atualizar o armazenamento assíncrono
+        syncTasks(newTasks);
     }
 
     function markCompleteTask(id) {
@@ -46,7 +48,7 @@ function App() {
         });
 
         setTasks(newTasks);
-        syncTasks(newTasks); // adicionado para atualizar o armazenamento assíncrono
+        syncTasks(newTasks);
     }
 
     function completedMarked() {
@@ -105,26 +107,32 @@ function App() {
     }, [pending, completed, pendingTasks, completedTasks, filteredTasks, search]);
 
     return (
-        <Container>
-            <Header />
-            <ProgressBar />
-            <Search
-                search={search}
-                setSearch={setSearch}
-                pending={pending}
-                completed={completed}
-                pendingMarked={pendingMarked}
-                completedMarked={completedMarked}
-            />
-            <AddField addTask={addTask} />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <Container>
+                <Header />
+                <ProgressBar tasks={tasks} />
+                <Search
+                    search={search}
+                    setSearch={setSearch}
+                    pending={pending}
+                    completed={completed}
+                    pendingMarked={pendingMarked}
+                    completedMarked={completedMarked}
+                />
+                <AddField addTask={addTask} />
 
-            <List
-                data={whichTasks}
-                renderItem={({ item }) => (
-                    <Task task={item} markCompleteTask={markCompleteTask} deleteTask={deleteTask} />
-                )}
-            />
-        </Container>
+                <List
+                    data={whichTasks}
+                    renderItem={({ item }) => (
+                        <Task
+                            task={item}
+                            markCompleteTask={markCompleteTask}
+                            deleteTask={deleteTask}
+                        />
+                    )}
+                />
+            </Container>
+        </GestureHandlerRootView>
     );
 }
 

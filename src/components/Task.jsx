@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import styled from "styled-components";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import {} from "react-native-gesture-handler";
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -12,7 +14,9 @@ const Container = styled.View`
     width: 100%;
 
     padding-horizontal: 10px;
-    padding-vertical: 5px;
+    padding-vertical: 10px;
+
+    background-color: #44475a;
 `;
 
 const ButtonGroup = styled.View`
@@ -24,10 +28,8 @@ const Button = styled.TouchableOpacity`
 `;
 
 function Task({ task, markCompleteTask, deleteTask }) {
-    return (
-        <Container>
-            <Text>{task.text}</Text>
-
+    function rightAction() {
+        return (
             <ButtonGroup>
                 <Button onPress={() => markCompleteTask(task.id)}>
                     <AntDesign name="check" size={24} color="green" />
@@ -36,7 +38,14 @@ function Task({ task, markCompleteTask, deleteTask }) {
                     <AntDesign name="delete" size={24} color="red" />
                 </Button>
             </ButtonGroup>
-        </Container>
+        );
+    }
+    return (
+        <Swipeable renderRightActions={rightAction}>
+            <Container>
+                <Text>{task.text}</Text>
+            </Container>
+        </Swipeable>
     );
 }
 
