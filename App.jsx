@@ -1,4 +1,4 @@
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { useState, useEffect, useMemo } from "react";
 import styled from "styled-components/native";
 
@@ -122,6 +122,8 @@ function App() {
                 <AddField addTask={addTask} />
 
                 <List
+                    contentContainerStyle={{ paddingVertical: 10 }}
+                    ItemSeparatorComponent={<View style={{ height: 5 }} />}
                     data={whichTasks}
                     renderItem={({ item }) => (
                         <Task

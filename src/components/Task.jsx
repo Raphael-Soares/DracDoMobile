@@ -16,7 +16,10 @@ const Container = styled.View`
     padding-horizontal: 10px;
     padding-vertical: 10px;
 
-    background-color: #44475a;
+    border-radius: 5px;
+
+    background-color: #6273a425;
+    z-index: 99;
 `;
 
 const ButtonGroup = styled.View`
